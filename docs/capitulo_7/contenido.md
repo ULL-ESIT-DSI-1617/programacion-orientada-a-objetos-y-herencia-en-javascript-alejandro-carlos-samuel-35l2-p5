@@ -146,7 +146,114 @@ alert ('persona2 es ' + persona2.primerNombre); // muestra "persona2 es Sebastia
 
 #### Los métodos
 
+Los métodos siguen la misma lógica que las propiedades, la diferencia es que son funciones y se definen como funciones. Llamar a un método es similar a acceder a una propiedad, pero se agrega () al final del nombre del método, posiblemente con argumentos.
+
+En el siguiente ejemplo se define y utiliza el método diHola() para la clase ```Persona```.
+
+```javascript
+function Persona(primerNombre) {
+  this.primerNombre = primerNombre;
+}
+
+Persona.prototype.diHola = function() {
+  alert ('Hola, Soy ' + this.primerNombre);
+};
+
+var persona1 = new Persona("Alicia");
+var persona2 = new Persona("Sebastian");
+
+// Llamadas al método diHola de la clase Persona.
+persona1.diHola(); // muestra "Hola, Soy Alicia"
+persona2.diHola(); // muestra "Hola, Soy Sebastian"
+```
+
+En JavaScript los métodos son objetos como lo es una función normal y se vinculan a un objeto como lo hace una propiedad, lo que significa que se pueden invocar desde "fuera de su contexto". Considera el siguiente código de ejemplo:
+
+```javascript
+function Persona(primerNombre) {
+  this.primerNombre = primerNombre;
+}
+
+Persona.prototype.diHola = function() {
+  alert ("Hola, Soy " + this.primerNombre);
+};
+
+var persona1 = new Persona("Alicia");
+var persona2 = new Persona("Sebastian");
+var funcionSaludar = persona1.diHola;
+
+persona1.diHola();                            // muestra "Hola, Soy Alicia"
+persona2.diHola();                            // muestra "Hola, Soy Sebastian"
+funcionSaludar();                             // muestra "Hola, Soy undefined (ó da un error con el
+                                              // TypeError en modo estricto
+
+alert(funcionSaludar === persona1.diHola);            // muestra true (verdadero)
+alert(funcionSaludar === Persona.prototype.diHola);   // muestra true (verdadero)
+funcionSaludar.call(persona1);                        // muestra "Hola, Soy Alicia"
+```
+
+En el ejemplo se muestran todas las referencias que tenemos de la función **diHola** — una de ellas es **persona1**, otra en **Persona.prototype**, en la variable **funcionSaludar**, etc. — todas se refieren a la misma función. El valor durante una llamada a la función depende de como realizamos esa llamada. En el común de los casos cuando la llamamos desde una expresión donde tenemos a la función desde la propiedad del objeto — **persona1.diHola()**.— Se establece en el objeto que tenemos en la función (persona1), razón por la cual **persona1.diHola()** utiliza el nombre "Alicia" y **persona2.diHola()** utiliza el nombre "Sebastian". Pero si realizamos la llamada de otra manera, se establecerá de otra manera: Llamandola desde una variable  — **funcionSaludar()** — Este establece al objeto global (windows, en los navegadores). Desde este objeto (probablemente) no tiene a la propiedad **primerNombre**, que finalizará con "Hola, Soy indefinido". (El cual se incluye en modo de código suelto, sino sería diferente [un error] en modo estricto, pero para evitar confusiones ahora no vamos a entra en detalles.) O podemos establecerla de forma explicita utilizando  Function.call (ó Function.apply), como se muestra al final del ejemplo **funcionSaludar.call(persona1)**.
+
 ## Herencia
+
+La herencia es una manera de crear una clase como una versión especializada de una o más clases (JavaScript sólo permite herencia simple). La clase especializada comúnmente se llama hija o secundaria, y la otra clase se le llama padre o primaria. En JavaScript la herencia se logra mediante la asignación de una instancia de la clase primaria a  la clase secundaria, y luego se hace la especialización.
+
+En el siguiente ejemplo definimos la clase ```Estudiante``` como una clase secundaria de ```Persona```. Luego redefinimos el método **diHola()** y agregamos el método **diAdios()**.
+
+```javascript
+// Definimos el constructor Persona
+function Persona(primerNombre) {
+  this.primerNombre = primerNombre;
+}
+
+// Agregamos un par de métodos a Persona.prototype
+Persona.prototype.caminar = function() {
+  alert("Estoy caminando!");
+};
+Persona.prototype.diHola = function(){
+  alert("Hola, Soy" + this.primerNombre);
+};
+
+// Definimos el constructor Estudiante
+function Estudiante(primerNombre, asignatura) {
+  // Llamamos al constructor padre, nos aseguramos (utilizando Function#call) que "this" se
+  // ha establecido correctamente durante la llamada
+  Persona.call(this, primerNombre);
+
+  //Inicializamos las propiedades específicas de Estudiante
+  this.asignatura = asignatura;
+};
+
+// Creamos el objeto Estudiante.prototype que hereda desde Persona.prototype
+// Nota: Un error común es utilizar "new Persona()" para crear Estudiante.prototype
+// Esto es incorrecto por varias razones, y no menos importante que no le estamos pasando nada
+// a Persona desde el argumento "primerNombre". El lugar correcto para llamar a Persona
+// es arriba, donde llamamos a Estudiante.
+Estudiante.prototype = Object.create(Persona.prototype);    // Vea las siguientes notas
+
+// Establecer la propiedad "constructor" para referencias a Estudiante
+Estudiante.prototype.constructor = Estudiante;
+
+// Remplazar el método "diHola"
+Estudiante.prototype.diHola = function(){
+  alert("Hola, Soy " + this.primerNombre + ". Estoy estudiando " + this.asignatura + ".");
+};
+
+// Agregamos el método "diAdios"
+Estudiante.prototype.diAdios = function() {
+  alert("¡ Adios !");
+};
+
+// Ejemplos de uso
+var estudiante1 = new Estudiante("Carolina", "Física Aplicada");
+estudiante1.diHola();    // muestra "Hola, Soy Carolina. Estoy estudianto Física Aplicada."
+estudiante1.caminar();   // muestra "Yo estoy caminando !"
+estudiante1.diAdios();   // muestra "¡ Adios !"
+
+// Comprobamos que las instancias funcionan correctamente
+alert(estudiante1 instanceof Persona);      // devuelve true
+alert(estudiante1 instanceof Estudiante);   // devuelve true
+```
 
 ## Encapsulación
 
