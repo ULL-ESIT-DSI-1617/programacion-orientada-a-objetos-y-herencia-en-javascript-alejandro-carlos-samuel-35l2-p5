@@ -18,9 +18,8 @@
     * Gitbook
     * gh-pages
     * Pandoc
-6. Express
-7. Cookies
-8. Sessions
+6. Express, Cookies & Sessions
+7. JavaScript orientado a objetos
 
 # Miembros del equipo
 
