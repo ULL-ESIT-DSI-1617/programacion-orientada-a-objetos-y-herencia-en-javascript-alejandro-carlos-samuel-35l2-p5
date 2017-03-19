@@ -255,6 +255,31 @@ alert(estudiante1 instanceof Persona);      // devuelve true
 alert(estudiante1 instanceof Estudiante);   // devuelve true
 ```
 
+Con respecto a la línea **Estudiante.prototype = Object.create(Persona.prototype)**; : Sobre los motores antiguos de JavaScript sin Object.create, se puede utilizar un "polyfill" (aka "shim", vea el enlace del artículo), o se puede utilizar una función que obtiene el mismo resultado, como por ejemplo:
+
+```javascript
+function crearObjeto(proto) {
+  function ctor() { }
+  ctor.prototype = proto;
+  return new ctor();
+}
+
+// uso:
+Estudiante.prototype = crearObjeto(Persona.prototype);
+```
+
 ## Encapsulación
 
+En el ejemplo anterior, Student no tiene que saber cómo se aplica el método walk() de la clase Person, pero, sin embargo, puede utilizar ese método. La clase Student no tiene que definir explícitamente ese método, a menos que queramos cambiarlo. Esto se denomina la encapsulación, por medio de la cual cada clase hereda los métodos de su elemento primario y sólo tiene que definir las cosas que desea cambiar.
+
 ## Abstracción
+
+Un mecanismo que permite modelar la parte actual del problema de trabajo. Esto se puede lograr por herencia (especialización) o por composición. JavaScript logra la especialización por herencia y por composición al permitir que las instancias de clases sean los valores de los atributos de otros objetos.
+
+La clase Function de JavaScript hereda de la clase de Object (esto demuestra la especialización del modelo) y la propiedad Function.prototype es un ejemplo de Objeto (esto demuestra la composición)
+
+```javascript
+var foo = function() {};
+alert( 'foo es una Función: ' + (foo instanceof Function) );
+alert( 'foo.prototype es un Objeto: ' + (foo.prototype instanceof Object) );
+```
