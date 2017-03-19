@@ -1,0 +1,26 @@
+{
+  "name": "programacion-orientada-a-objetos-y-herencia-en-javascript-alejandro-carlos-samuel-35l2-p5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleag/programacion-orientada-a-objetos-y-herencia-en-javascript-alejandro-carlos-samuel-35l2-p5.git"
+  },
+  "author": "Alejandro Arzola, Carlos de Armas, Samuel Valcárcel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleag/programacion-orientada-a-objetos-y-herencia-en-javascript-alejandro-carlos-samuel-35l2-p5/issues"
+  },
+  "homepage": "https://github.com/aleag/programacion-orientada-a-objetos-y-herencia-en-javascript-alejandro-carlos-samuel-35l2-p5#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  }
+}
