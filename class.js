@@ -30,7 +30,7 @@ class Temperatura extends Medida {
 
 class Celsius extends Temperatura {
     constructor(value, string) {
-        super(value, string)
+        super(value, string);
     }
     celsius2Kelvin() {
         let conversion = super.getValue + 273.15;
@@ -42,15 +42,31 @@ class Celsius extends Temperatura {
     }
 }
 
+
+class Kelvin extends Temperatura {
+    constructor(value, string) {
+        super(value, string);
+    }
+
+    kelvin2Celsius() {
+        let conversion = super.getValue - 273.15;
+        return conversion.toPrecision(4);
+    }
+
+    kelvin2Farenheit() {
+        let conversion = super.getValue * 9/5 - 459.67;
+        return conversion.toPrecision(4);
+    }
+
 class Fahrenheit extends Temperatura {
     constructor(value, string) {
         super(value, string)
     }
-    Fahrenheit2Kelvin() {
+    fahrenheit2Kelvin() {
         let conversion = (super.getValue + 459.67) * 5/9;
         return conversion.toPrecision(4);
     }
-    Fahrenheit2Celsius() {
+    fahrenheit2Celsius() {
         let conversion = (super.getValue - 32) * 5/9;
         return conversion.toPrecision(4);
     }
