@@ -44,7 +44,7 @@ class Celsius extends Temperatura {
         if (super.getString == 'k' || super.getString == 'K') {
             return celsius2Kelvin();
         } else if (super.getString == 'f' || super.getString == 'F') {
-            return celsius2Farenheit();
+            return this.celsius2Farenheit();
         }
     }
 }
@@ -68,7 +68,7 @@ class Kelvin extends Temperatura {
         if (super.getString == 'c' || super.getString == 'C') {
             return kelvin2Celsius();
         } else if (super.getString == 'f' || super.getString == 'F') {
-            return kelvin2Farenheit();
+            return this.kelvin2Farenheit();
         }
     }
 }
@@ -89,7 +89,7 @@ class Farenheit extends Temperatura {
         if (super.getString == 'k' || super.getString == 'K') {
             return farenheit2Kelvin();
         } else if (super.getString == 'c' || super.getString == 'C') {
-            return farenheit2Celsius();
+            return this.farenheit2Celsius();
         }
     }
 }
@@ -118,6 +118,7 @@ function calculate() {
             let farenheit = new Farenheit(num, unidad);
             result = farenheit.convert();
         }
+        console.log(result);
         converted.innerHTML = result;
 
     } else {
