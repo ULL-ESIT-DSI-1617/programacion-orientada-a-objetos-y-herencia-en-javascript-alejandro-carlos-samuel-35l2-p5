@@ -57,6 +57,7 @@ class Kelvin extends Temperatura {
         let conversion = super.getValue * 9/5 - 459.67;
         return conversion.toPrecision(4);
     }
+}
 
 class Fahrenheit extends Temperatura {
     constructor(value, string) {
