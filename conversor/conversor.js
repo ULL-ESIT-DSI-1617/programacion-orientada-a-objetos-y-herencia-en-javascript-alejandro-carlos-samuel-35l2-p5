@@ -103,14 +103,15 @@ function calculate() {
     let m = temp.match(regexp);
     let numero = "";
 
-    for (let i = 1; i < 5; i++) {
-        if(typeof m[i] != 'undefined') {
-            numero += m[i];
-        }
-    }
-    let valor = parseFloat(numero);
-
     if (m) {
+        for (let i = 1; i < 5; i++) {
+            if (typeof m[i] != 'undefined') {
+                numero += m[i];
+            }
+        }
+
+        let valor = parseFloat(numero);
+
         let num = valor; // valor
         let clase = m[5]; // 2 es la clase
         let unidad = m[7]; // 4 es la unidad a convertir
@@ -130,6 +131,6 @@ function calculate() {
         converted.innerHTML = result;
 
     } else {
-        converted.innerHTML = "ERROR! Try something like '4.2C' instead";
+        converted.innerHTML = "ERROR! Try something like '4.2C to F' instead";
     }
 }
