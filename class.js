@@ -34,10 +34,24 @@ class Celsius extends Temperatura {
     }
     celsius2Kelvin() {
         let conversion = super.getValue + 273.15;
-        return conversion;
+        return conversion.toPrecision(4);
     }
     celsius2Farenheit() {
         let conversion = (super.getValue * 1.8) + 32;
-        return conversion;
+        return conversion.toPrecision(4);
+    }
+}
+
+class Fahrenheit extends Temperatura {
+    constructor(value, string) {
+        super(value, string)
+    }
+    Fahrenheit2Kelvin() {
+        let conversion = (super.getValue + 459.67) * 5/9;
+        return conversion.toPrecision(4);
+    }
+    Fahrenheit2Celsius() {
+        let conversion = (super.getValue - 32) * 5/9;
+        return conversion.toPrecision(4);
     }
 }
