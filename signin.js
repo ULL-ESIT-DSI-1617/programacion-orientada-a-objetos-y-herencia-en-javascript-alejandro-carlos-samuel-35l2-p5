@@ -3,16 +3,8 @@ var fs = require('fs');
 
 var users = {
     "users": [{
-            "username": "ale",
-            "password": bcrypt.hashSync("alepass")
-        },
-        {
-            "username": "carlos",
-            "password": bcrypt.hashSync("carlospass")
-        },
-        {
-            "username": "samuel",
-            "password": bcrypt.hashSync("samuelpass")
+            "username": "dsi1617",
+            "password": bcrypt.hashSync("dsi1617password")
         }
     ]
 };
