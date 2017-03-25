@@ -9,7 +9,7 @@
 <body>
     <h1>ULL-ESIT-DSI-1617 Sessions y autenticación en ExpressJS</h1>
     <h2>Grupo: alejandro-carlos-samuel</h2>
-    <h3>Login</h3>
+    <h3>Change password</h3>
     <ul>
         <li><a href="/">Homepage</a></li>
         <li><a href="/login">Login</a></li>
@@ -19,14 +19,18 @@
     </ul>
     <br>
     <br>
-    <form action="/login" method="post">
+    <form action="/profile" method="post">
         <p>
             <label>Username:</label>
             <input type="text" name="username">
         </p>
         <p>
-            <label>Password:</label>
-            <input type="password" name="password">
+            <label>Old Password:</label>
+            <input type="password" name="oldpassword">
+        </p>
+        <p>
+            <label>New Password:</label>
+            <input type="password" name="newpassword">
         </p>
         <p>
             <input type="submit" value="Login">
