@@ -42,7 +42,7 @@ class Celsius extends Temperatura {
     }
     convert() {
         if (super.getString == 'k' || super.getString == 'K') {
-            return celsius2Kelvin();
+            return this.celsius2Kelvin();
         } else if (super.getString == 'f' || super.getString == 'F') {
             return this.celsius2Farenheit();
         }
@@ -66,7 +66,7 @@ class Kelvin extends Temperatura {
     }
     convert() {
         if (super.getString == 'c' || super.getString == 'C') {
-            return kelvin2Celsius();
+            return this.kelvin2Celsius();
         } else if (super.getString == 'f' || super.getString == 'F') {
             return this.kelvin2Farenheit();
         }
@@ -101,7 +101,7 @@ function calculate() {
     //let regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])/;
     let regexp = /^([-+])?(\d+)(.\d*)?(e[-+]?\d+)?([cCfFkK])(\sto)?\s([cCfFkK])$/;
     let m = temp.match(regexp);
-    let numero;
+    let numero = "";
 
     for (let i = 1; i < 5; i++) {
         if(typeof m[i] != 'undefined') {
