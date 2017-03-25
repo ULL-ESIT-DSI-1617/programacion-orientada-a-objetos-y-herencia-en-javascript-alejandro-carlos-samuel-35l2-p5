@@ -33,11 +33,11 @@ class Celsius extends Temperatura {
         super(value, string)
     }
     c2K() {
-        let conversion = getValue() + 273.15;
+        let conversion = super.getValue + 273.15;
         return conversion;
     }
     c2F() {
-        let conversion = (getValue() * 1.8) + 32;
+        let conversion = (super.getValue * 1.8) + 32;
         return conversion;
     }
 }
