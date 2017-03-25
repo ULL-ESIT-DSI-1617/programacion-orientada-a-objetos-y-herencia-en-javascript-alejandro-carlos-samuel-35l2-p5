@@ -26,12 +26,15 @@ https://campusvirtual.ull.es/1617/course/view.php?id=1136
 
 https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaoop.html
 
+## Despliegue en GitHub Pages:
+
+*  [Gh-Pages](https://ull-esit-dsi-1617.github.io/programacion-orientada-a-objetos-y-herencia-en-javascript-alejandro-carlos-samuel-35l2-p5)
 
 ## Despliegue en [iaas.ull.es](iaas.ull.es):
 
-* [Máquina iaas Alejandro]()
-* [Máquina iaas Carlos]()
-* [Máquina iaas Samuel]()
+* [Máquina iaas Alejandro](http://10.6.128.77:8086/)
+* [Máquina iaas Carlos](http://10.6.128.137:8087/)
+* [Máquina iaas Samuel](http://10.6.128.137:8087/)
 
 ## Despliegue en [Heroku](https://dashboard.heroku.com/login)
 
