@@ -95,7 +95,7 @@ class Farenheit extends Temperatura {
 }
 
 
-function calculate () {
+function calculate() {
     let result;
     let temp = original.value;
     //let regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])/;
@@ -103,21 +103,24 @@ function calculate () {
     let m = temp.match(regexp);
 
     if (m) {
-        let num = m[1];        // valor
-        let clase = m[2];     // 2 es la clase
-        let unidad = m[4];   // 4 es la unidad a convertir
+        let num = m[1]; // valor
+        let clase = m[2]; // 2 es la clase
+        let unidad = m[4]; // 4 es la unidad a convertir
         num = parseFloat(num);
 
         if (clase == 'c' || clase == 'C') {
             let celsius = new Celsius(num, unidad);
             result = celsius.convert();
-        } else if( clase == 'k' || clase == 'K') {
+        } else if (clase == 'k' || clase == 'K') {
             let kelvin = new Kelvin(num, unidad);
             result = kelvin.convert();
-        } else if( clase == 'f' || clase == 'F') {
+        } else if (clase == 'f' || clase == 'F') {
             let farenheit = new Farenheit(num, unidad);
             result = farenheit.convert();
         }
+        converted.innerHTML = result;
 
+    } else {
+        converted.innerHTML = "ERROR! Try something like '4.2C' instead";
     }
 }
