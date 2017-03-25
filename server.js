@@ -138,18 +138,6 @@ app.get('/logout', function(req, res) {
     res.render('logout');
 });
 
-/* Petición GET a /conversor */
-app.get('/conversor', function(req, res) {
-    console.log("URL: " + req.originalUrl + ", Method: " + req.method);
-    res.render('conversor');
-});
-
-/* Petición POST a /conversor */
-app.post('/conversor', function(req, res) {
-    console.log("URL: " + req.originalUrl + ", Method: " + req.method);
-    console.log(req.body);
-});
-
 /* Petición GET a /content, solo permitida con login */
 app.get('/content/*?', auth);
 
