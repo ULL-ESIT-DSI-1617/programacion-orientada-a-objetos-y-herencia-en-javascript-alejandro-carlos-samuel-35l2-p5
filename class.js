@@ -40,6 +40,14 @@ class Celsius extends Temperatura {
         let conversion = (super.getValue * 1.8) + 32;
         return conversion.toPrecision(4);
     }
+    convert() {
+      if(super.getString == 'k' || super.getString == 'K') {
+        return celsius2Kelvin();
+      }
+      else if(super.getString == 'f' || super.getString == 'F') {
+        return celsius2Farenheit();
+      }
+    }
 }
 
 
@@ -57,6 +65,14 @@ class Kelvin extends Temperatura {
         let conversion = super.getValue * 9/5 - 459.67;
         return conversion.toPrecision(4);
     }
+    convert() {
+      if(super.getString == 'c' || super.getString == 'C') {
+        return kelvin2Celsius();
+      }
+      else if(super.getString == 'f' || super.getString == 'F') {
+        return kelvin2Farenheit();
+      }
+    }
 }
 
 class Fahrenheit extends Temperatura {
@@ -70,5 +86,13 @@ class Fahrenheit extends Temperatura {
     fahrenheit2Celsius() {
         let conversion = (super.getValue - 32) * 5/9;
         return conversion.toPrecision(4);
+    }
+    convert() {
+      if(super.getString == 'k' || super.getString == 'K') {
+        return fahrenheit2Kelvin();
+      }
+      else if(super.getString == 'k' || super.getString == 'K') {
+        return fahrenheit2Celsius();
+      }
     }
 }
