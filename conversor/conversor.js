@@ -111,6 +111,9 @@ function calculate () {
         if (clase == 'c' || clase == 'C') {
             let celsius = new Celsius(num, unidad);
             result = celsius.convert();
+        } else if( clase == 'k' || clase == 'K') {
+            let kelvin = new Kelvin(num, unidad);
+            result = kelvin.convert();
         } 
 
     }
