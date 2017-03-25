@@ -24,7 +24,7 @@
 
 * [Capítulo 7](./capitulo_7/README.md)
     * [Terminología](./capitulo_7/contenido.md#terminología)
-    * [POO](./capitulo_7/contenido.md#poo)
+    * [POO](./capitulo_7/contenido.md#poo-en-javascript)
     * [Herencia](./capitulo_7/contenido.md#herencia)
     * [Encapsulación](./capitulo_7/contenido.md#encapsulación)
     * [Abstraccion](./capitulo_7/contenido.md#abstracción)
