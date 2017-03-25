@@ -73,23 +73,23 @@ class Kelvin extends Temperatura {
     }
 }
 
-class Fahrenheit extends Temperatura {
+class Farenheit extends Temperatura {
     constructor(value, string) {
         super(value, string)
     }
-    fahrenheit2Kelvin() {
+    farenheit2Kelvin() {
         let conversion = (super.getValue + 459.67) * 5 / 9;
         return conversion.toPrecision(4);
     }
-    fahrenheit2Celsius() {
+    farenheit2Celsius() {
         let conversion = (super.getValue - 32) * 5 / 9;
         return conversion.toPrecision(4);
     }
     convert() {
         if (super.getString == 'k' || super.getString == 'K') {
-            return fahrenheit2Kelvin();
+            return farenheit2Kelvin();
         } else if (super.getString == 'c' || super.getString == 'C') {
-            return fahrenheit2Celsius();
+            return farenheit2Celsius();
         }
     }
 }
@@ -114,7 +114,10 @@ function calculate () {
         } else if( clase == 'k' || clase == 'K') {
             let kelvin = new Kelvin(num, unidad);
             result = kelvin.convert();
-        } 
+        } else if( clase == 'f' || clase == 'F') {
+            let farenheit = new Farenheit(num, unidad);
+            result = farenheit.convert();
+        }
 
     }
 }
