@@ -38,7 +38,7 @@ https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practic
 
 ## Despliegue en [Heroku](https://dashboard.heroku.com/login)
 
-* [Heroku Samuel](https://cosaca-p6.herokuapp.com/)
+* [Enlace Heroku](https://cosaca-p6.herokuapp.com/)
 
 ## URL del repositorio git:
 
