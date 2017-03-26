@@ -87,7 +87,7 @@ class Farenheit extends Temperatura {
     }
     convert() {
         if (super.getString == 'k' || super.getString == 'K') {
-            return farenheit2Kelvin();
+            return this.farenheit2Kelvin();
         } else if (super.getString == 'c' || super.getString == 'C') {
             return this.farenheit2Celsius();
         }
